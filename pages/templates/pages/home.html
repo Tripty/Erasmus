@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Pages Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<header class="py-5 bg-light text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Welcome to My Blog</h1>
+    <p class="lead">Sharing knowledge, tutorials, and stories about coding and technology.</p>
+  </div>
+</header>
+<section class="py-5">
+  <div class="container">
+    <div class="row mb-2">
+        {{ latest_posts }}
+
+      {% for post in latest_posts %}  
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary-emphasis">{{ post.category.name }}</strong><br/>
+              <strong class="d-inline-block mb-2 text-primary-emphasis">{{ MEDIA_URL}}{{post.cover_image }}</strng>
+              <h3 class="mb-0">{{ post.title}}</h3>
+              <h4> {{ post.cover_image }}</h4>
+              <div class="mb-1 text-body-secondary">{{ post.created_at|date:"M d, Y" }}</div>
+              <p class="card-text mb-auto">
+                {{ post.excerpt|truncatewords:20 }}
+                <br/>
+                <img src="{{ MEDIA_URL }}{{ post.cover_image }}" alt="{{ post.title }}">
+
+
+              </p>
+              <a href="{% url 'blog:post_detail' post.slug %}" class="icon-link gap-1 icon-link-hover stretched-link">
+                Continue reading 
+                <svg class="bi"> 
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                          
+            </div>
+          </div>
+        </div>
+       {% empty %}
+        <p class="text-center">No posts available.</p>
+       {% endfor %}
+        
+      
+    </div>
+  </div>
+</section>
+
+{% endblock %}

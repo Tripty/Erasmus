@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h1>Contact Us</h1>
+
+  {% if success %}
+    <div class="alert alert-success">Thank you! Your message has been sent.</div>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      {{ form.name.label_tag }}  
+      {{ form.name }}
+    </div>
+    <div class="mb-3">
+      {{ form.email.label_tag }}  
+      {{ form.email }}
+    </div>
+    <div class="mb-3">
+      {{ form.message.label_tag }}  
+      {{ form.message }}
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+</div>
+{% endblock %}
