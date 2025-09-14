@@ -26,9 +26,10 @@
         <div>
           <ul class="navbar-nav me-auto">
             
-           <!-- <li class="nav-item"><a class="nav-link" href="/pages/about/">About</a></li>
-      -->      <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="/shop/">Shop</a></li>
+           <li class="nav-item"><a class="nav-link" href="/pages/about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+           {# <li class="nav-item"><a class="nav-link" href="/shop/">Shop</a></li> #}
+           <!--<li class="nav-item"><a class="nav-link" href="/shop/">E-shop</a></li>-->
                {% if user.is_authenticated %}
              <li class="nav-item">
                 <form method="post" action="{% url 'logout' %}">

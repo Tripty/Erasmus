@@ -15,7 +15,7 @@
 <div class="mb-3">
   <a class="badge bg-secondary text-decoration-none me-1 {% if not active_category %}opacity-75{% endif %}" href="{% url 'blog:post_list' %}">All</a>
   {% for cat in categories %}
-    <a class="badge bg-info text-dark text-decoration-none me-1 {% if active_category == cat.slug %}opacity-75{% endif %}"
+    <a class="badge bg-secondary text-decoration-none me-1 cat-bg {% if active_category == cat.slug %}opacity-75{% endif %}"
        href="?category={{ cat.slug }}">{{ cat.name }}</a>
   {% endfor %}
 </div>
