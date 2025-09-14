@@ -1,0 +1,46 @@
+# Python cache/compiled files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# VSCode / PyCharm / Editors
+.vscode/
+.idea/
+
+# macOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Static and media files
+/media/
+staticfiles/
+
+# Environment files (secrets, keys, DB creds, etc.)
+.env
+.env.local
+.env.*
+
+# Coverage / test reports
+htmlcov/
+.tox/
+.coverage
+.pytest_cache/
+
+# Migrations (optional — keep if you want to show migrations)
+# */migrations/
+
+
+
+db.sqlite3

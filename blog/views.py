@@ -5,6 +5,9 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import UserCreationForm
 
+from django.core.exceptions import PermissionDenied
+
+
 from .models import Post, Category
 from .forms import GuestPostForm, BloggerPostForm, CommentForm, BlogPostForm
 from .models import ContactMessage
@@ -85,8 +88,9 @@ def user_is_blogger(user):
     return user.is_authenticated and (user.is_staff or user.groups.filter(name="Blogger").exists())
 
 @login_required
-@user_passes_test(user_is_blogger)
-def blogger_post_create(request):
+def blogger_post_create(request): 
+    if not user_is_blogger(request.user):
+        raise PermissionDenied  
     """Authenticated bloggers/admins can publish directly."""
     if request.method == "POST":
         form = BloggerPostForm(request.POST, request.FILES)
