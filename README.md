@@ -1,2 +1,2 @@
 # Erasmus
-This is the django project where there are Basic informational pages and Blog. Later we are aimed to add emcommerce shop for this project.
+This is the django project where Basic informational pages and Blog. Later we are aimed to add e-commerce shop for this project.
